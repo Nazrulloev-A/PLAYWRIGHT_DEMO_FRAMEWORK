@@ -17,6 +17,7 @@
         <PackageReference Include="Microsoft.Playwright.Xunit" Version="1.51.0" />
         <PackageReference Include="Motor.Extensions.Hosting" Version="0.15.0-beta.1" />
         <PackageReference Include="Reqnroll" Version="2.4.0" />
+        <PackageReference Include="Reqnroll.CustomPlugin" Version="2.4.0" />
         <PackageReference Include="Reqnroll.xUnit" Version="2.4.0" />
         <PackageReference Include="xunit" Version="2.9.2"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2"/>

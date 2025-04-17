@@ -23,6 +23,7 @@ public class LoginStepDefinitions
     public async Task GivenUserNavigatesToTestHomePage()
     {
         await _basePage.Navigate();
+        
     }
 
     [When("user logs in using username and password for Staff")]
@@ -30,11 +31,11 @@ public class LoginStepDefinitions
     {
         await _loginPage.UserLogin("Staff");
     }
+    
 
-
-    [When("user successfully logged out")]
-    public async Task WhenUserSuccessfullyLoggedOut(string userRole)
+    [Then("user successfully logged out")]
+    public async Task ThenUserSuccessfullyLoggedOut()
     {
-        await _loginPage.UserLogin(userRole);
+        await _loginPage.LogOut();
     }
 }

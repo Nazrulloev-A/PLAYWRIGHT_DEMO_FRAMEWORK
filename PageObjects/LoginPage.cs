@@ -18,11 +18,12 @@ public class LoginPage
 
     }
     
-    private ILocator OrigUserNameBox => _page.Locator("//input[@id='ctl00_MainContent_username']");
-    private ILocator OrigPasswordBox => _page.Locator("//input[@id='ctl00_MainContent_password']");
-    private ILocator OrigSignInBtn => _page.Locator("button[@id='ctl00_MainContent_login_button']");
+    private ILocator UserNameBox => _page.Locator("//input[@id='ctl00_MainContent_username']");
+    private ILocator PasswordBox => _page.Locator("//input[@id='ctl00_MainContent_password']");
+    private ILocator SignInBtn => _page.Locator("//input[@id='ctl00_MainContent_login_button']");
+    private ILocator SingOutBtn => _page.Locator("//a[@id='ctl00_logout']");
     
-    private ILocator UserName => _page.Locator("id=username");
+    /*private ILocator UserName => _page.Locator("id=username");
     private ILocator Password => _page.Locator("id=password");
     private ILocator Continue => _page.Locator("button[name=\"action\"]");
     private ILocator TermsAndConditionHeader => _page.Locator("//div[@class='panel-heading text-center']");
@@ -32,6 +33,7 @@ public class LoginPage
     private ILocator MessagesMenu => _page.Locator("//a[@id='messengerMainBtn']");
     private ILocator GlobalSearch => _page.Locator("//input[@id='term' and @type='search']");
     private ILocator PerDieamJobGrid => _page.Locator("//div[@id='grid-container']']");
+    */
     
     
     public async Task UserLogin(string userRole)
@@ -75,7 +77,7 @@ public class LoginPage
         await Login(userName, password);
     }
 
-    public async Task VerifyOnLoginPage()
+    /*public async Task VerifyOnLoginPage()
     {
         Assert.Contains("Manage/UserProfil", _page.Url);
     }
@@ -84,8 +86,9 @@ public class LoginPage
     {
         var isInvisible = await NavBarList.CountAsync() == 0;
         Assert.True(isInvisible);
-    }
+    }*/
 
+    /*
     public async Task ValidateElementsNotVisibleAsync()
     {
         // Assert that NavBarList is not visible
@@ -116,34 +119,38 @@ public class LoginPage
         await _basePage.NavigateTo(page);
         
     }
+    */
 
 
 
     private async Task Login(string userName, string password)
     {
-        if (await UserName.CountAsync() > 0)
+        if (await UserNameBox.CountAsync() > 0)
         {
-            await UserName.FillAsync(userName);
-            await Password.FillAsync(password);
-            await ContinueBtn.ClickAsync();
+            await UserNameBox.FillAsync(userName);
+            await PasswordBox.FillAsync(password);
+            await SignInBtn.ClickAsync();
         }
         else
         {
-            await OrigUserNameBox.FillAsync(userName);
-            await OrigPasswordBox.FillAsync(password);
-            await OrigSignInBtn.ClickAsync();
+            await UserNameBox.FillAsync(userName);
+            await PasswordBox.FillAsync(password);
+            await SignInBtn.ClickAsync();
         }
         //Thread.Sleep(3000);
-        if (!await TermsAndConditionHeader.IsHiddenAsync())
+        /*if (!await TermsAndConditionHeader.IsHiddenAsync())
         {
             await Accept.ClickAsync();
             await ContinueBtn.ClickAsync();
-        }
+        }*/
     }
-    
-    
-    
-    
+
+
+
+    public async Task LogOut()
+    {
+        await SingOutBtn.ClickAsync();
+    }
     
     
     

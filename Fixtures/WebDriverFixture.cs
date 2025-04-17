@@ -16,6 +16,7 @@ public class WebDriverFixture : IAsyncLifetime
     public async Task InitializeAsync()
     {
         Browser = await WebDriverFactory.CreateDriver(_browserConfig.BrowserType, _browserConfig.Headless, _browserConfig.SlowMo);
+        
     }
     public IBrowser Browser { get; private set; }
         
@@ -25,5 +26,6 @@ public class WebDriverFixture : IAsyncLifetime
         await Browser.CloseAsync();
 
     }
+    
 
 }

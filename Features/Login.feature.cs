@@ -128,7 +128,7 @@ namespace DemoFramewrok.Features
         await testRunner.WhenAsync(string.Format("user logs in using username and password for {0}", userRole), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 7
-        await testRunner.AndAsync("user successfully logged out", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+        await testRunner.ThenAsync("user successfully logged out", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
