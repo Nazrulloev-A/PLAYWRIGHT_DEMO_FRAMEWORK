@@ -16,26 +16,7 @@ public class HomePage
         _page = page;
     }
 
-    private Task<string> UserNameTx => _page.Locator("//span[@id='logged-in-user-name']").InnerTextAsync();
-    private ILocator PageTitle => _page.Locator("//span[contains(text(),'Job Postings')]");
-    private Task ClickUserNameDropDown => _page.Locator("//i[@class='caret']").ClickAsync();
-    private Task ClickSignOut => _page.Locator("//*[contains(text(),'Sign out')]").ClickAsync();
-    private ILocator MenuBarList => _page.Locator("//ul[@class='nav navbar-nav']/li");
-    private ILocator IndivMenuBar(int index) => MenuBarList.Nth(index);
-    private ILocator EachSubMenu(int index) => _page.Locator("//ul[@class='nav navbar-nav']/li[" + (index + 1) + "]/ul/li[contains(@class,'submenu')]");
-    private ILocator PageContent => _page.Locator("//div[@class='page-content']");
-    private ILocator PageContentForAgGrid => _page.Locator("//div[@id=\"react-layout-content\"]");
-    private ILocator ScheduleBox => _page.Locator("//input[@id='schedule']");
-    private ILocator ScheduleBoxListResult => _page.Locator("//ul[@id='schedule-listbox']/li");
-    private ILocator Schedule_viewBtn => _page.Locator("//button[text()='View']");
-    public ILocator PerDiemMenu => _page.Locator("//a[@class=\"dropdown-toggle\"][contains(text(),\"Per Diem\")]");
-    public ILocator RateCardsSubMenu => _page.Locator("//a[@href=\"/per-diem/rate-cards\"][contains(text(),'Rate Cards')]");
-    public ILocator ClearancesSubMenu => _page.Locator("//a[@href='/per-diem/clearances'][contains(text(),'Clearances')]");
-    public ILocator StaffingPoolSubMenu => _page.Locator("//a[@href='/per-diem/staffing-pools'][contains(text(),'Staffing Pool')]");
-    public ILocator MenuNursingAllied => _page.Locator("//div[@id=\"navbar-second\"]//a[contains(text(),'Nursing/Allied')][@data-toggle=\"dropdown\"]");
-    public ILocator SubMenuSubmission => _page.Locator("//*[contains(@href,'Submission')][contains(text(),'Submissions')]");
-    public ILocator CandidatesMenu => _page.Locator("//a[contains(text(),'Candidates')]");
-
+   
     public async Task VerifyUserName(string userRole)
     {
         string? firstLastName = null;

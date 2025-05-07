@@ -23,17 +23,7 @@ public class LoginPage
     private ILocator SignInBtn => _page.Locator("//input[@id='ctl00_MainContent_login_button']");
     private ILocator SingOutBtn => _page.Locator("//a[@id='ctl00_logout']");
     
-    /*private ILocator UserName => _page.Locator("id=username");
-    private ILocator Password => _page.Locator("id=password");
-    private ILocator Continue => _page.Locator("button[name=\"action\"]");
-    private ILocator TermsAndConditionHeader => _page.Locator("//div[@class='panel-heading text-center']");
-    private ILocator Accept => _page.Locator("id=accepted");
-    private ILocator ContinueBtn => _page.Locator("//button[@type='submit'][@data-action-button-primary='true']");
-    private ILocator NavBarList => _page.Locator("//ul[@class='nav navbar-nav']/li");
-    private ILocator MessagesMenu => _page.Locator("//a[@id='messengerMainBtn']");
-    private ILocator GlobalSearch => _page.Locator("//input[@id='term' and @type='search']");
-    private ILocator PerDieamJobGrid => _page.Locator("//div[@id='grid-container']']");
-    */
+   
     
     
     public async Task UserLogin(string userRole)
@@ -77,51 +67,7 @@ public class LoginPage
         await Login(userName, password);
     }
 
-    /*public async Task VerifyOnLoginPage()
-    {
-        Assert.Contains("Manage/UserProfil", _page.Url);
-    }
-
-    public async Task VerifyLimitedViewForAPI()
-    {
-        var isInvisible = await NavBarList.CountAsync() == 0;
-        Assert.True(isInvisible);
-    }*/
-
-    /*
-    public async Task ValidateElementsNotVisibleAsync()
-    {
-        // Assert that NavBarList is not visible
-        var isNavBarListVisible = await NavBarList.IsVisibleAsync();
-        if (isNavBarListVisible)
-        {
-            throw new Exception("NavBarList should not be visible, but it is.");
-        }
-
-        // Assert that MessagesMenu is not visible
-        var isMessagesMenuVisible = await MessagesMenu.IsVisibleAsync();
-        if (isMessagesMenuVisible)
-        {
-            throw new Exception("MessagesMenu should not be visible, but it is.");
-        }
-
-        // Assert that GlobalSearch is not visible
-        var isGlobalSearchVisible = await GlobalSearch.IsVisibleAsync();
-        if (isGlobalSearchVisible)
-        {
-            throw new Exception("GlobalSearch should not be visible, but it is.");
-        }
-    }
-
-    public async Task ValidateUserPermissions(string page)
-    {
-        
-        await _basePage.NavigateTo(page);
-        
-    }
-    */
-
-
+    
 
     private async Task Login(string userName, string password)
     {
@@ -137,12 +83,7 @@ public class LoginPage
             await PasswordBox.FillAsync(password);
             await SignInBtn.ClickAsync();
         }
-        //Thread.Sleep(3000);
-        /*if (!await TermsAndConditionHeader.IsHiddenAsync())
-        {
-            await Accept.ClickAsync();
-            await ContinueBtn.ClickAsync();
-        }*/
+       
     }
 
 
